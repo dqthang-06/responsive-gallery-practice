@@ -1,0 +1,90 @@
+/* Thiết lập cơ bản */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 20px 15px;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.gallery-header h2 {
+    font-size: 26px;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.gallery-header p {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Khung bao bọc danh sách thẻ ảnh (Flexbox) */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 1. MẶC ĐỊNH (Màn hình lớn hơn 700px): Hiển thị 4 ảnh / 1 dòng */
+.gallery-item {
+    flex: 25%;
+    max-width: 25%;
+    padding: 8px;
+}
+
+/* Khung viền và hiệu ứng thẻ ảnh */
+.card {
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    border-color: #0284c7;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.desc {
+    padding: 12px;
+    text-align: center;
+    font-size: 13px;
+    color: #334155;
+}
+
+/* 2. MEDIA QUERY: Màn hình nhỏ hơn 700px -> Hiển thị 2 ảnh / 1 dòng */
+@media screen and (max-width: 700px) {
+    .gallery-item {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* 3. MEDIA QUERY: Màn hình nhỏ hơn 500px -> Hiển thị 1 ảnh / 1 dòng */
+@media screen and (max-width: 500px) {
+    .gallery-item {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
